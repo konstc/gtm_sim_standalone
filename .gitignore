@@ -1,0 +1,16 @@
+# Build trees
+/build/
+
+# External inputs (referenced via GTM_BUNDLE_DIR / SYSTEMC_AMS_DIR / MINGW_DIR,
+# never part of this repository)
+/coside-*/
+/systemc-ams-*/
+*.tar.gz
+*.tgz
+*.zip
+*.7z
+
+# Simulation outputs and tool caches
+*.vcd
+*.gtkw
+__pycache__/

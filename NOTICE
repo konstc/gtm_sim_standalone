@@ -1,0 +1,31 @@
+gtm_sim_standalone
+Copyright 2026 Konstantin Chernyshov
+
+Licensed under the Apache License, Version 2.0 (see LICENSE).
+
+This project works with the following third-party components. None of them
+is included in this repository; they are obtained separately:
+
+  * Bosch GTM SystemC model (Robert Bosch GmbH, COSEDA Technologies GmbH),
+    free download from https://www.coseda-tech.com/bosch-gtm-systemc-model,
+    provided by COSEDA under the Apache License 2.0
+  * SystemC-AMS proof-of-concept (COSEDA Technologies GmbH), free download
+    from https://www.coseda-tech.com/systemc-ams-proof-of-concept,
+    Apache License 2.0
+  * SystemC (Accellera Systems Initiative, Apache License 2.0), downloaded
+    during the build
+  * Windows only: a MinGW-w64 GCC toolchain, e.g. WinLibs
+
+The example in examples/atom_somp/ is based on the ATOM SOMP example of the
+Bosch GTM SystemC model (register configuration sequence, test bench
+instance/signal names and stimulus values), which COSEDA Technologies GmbH
+provides under the Apache License 2.0. It was rewritten for plain SystemC.
+
+The runtime interface the prebuilt GTM libraries require from COSIDE (which
+is not part of the model download) is implemented independently in
+cos_compat/.
+
+This project is not affiliated with, endorsed or supported by Robert Bosch
+GmbH or COSEDA Technologies GmbH. "Bosch", "GTM", "COSIDE" and "COSEDA" are
+used only to describe compatibility; they are trademarks or names of their
+respective owners.

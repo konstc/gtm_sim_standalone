@@ -1,0 +1,41 @@
+{
+  "plots": [
+    {
+      "output": "overview.svg",
+      "title": "tom_pwm_irq - TOM0 channel 0 PWM with period interrupt",
+      "vcd": "tom_pwm_irq.vcd",
+      "from_ns": 0, "to_ns": 8500,
+      "signals": [
+        {"name": "TOM0_OUT(0)", "label": "TOM0_OUT(0)"},
+        {"name": "*.tom0.tom0_ch0.CN0:UP", "label": "ch0 CN0", "style": "analog"},
+        {"name": "*.tom0.tom0_ch0.tom_sr1", "label": "ch0 SR1", "format": "dec"},
+        {"name": "*.tom0.tom0_ch0.tom_cm1", "label": "ch0 CM1", "format": "dec"},
+        {"name": "TOM0_IRQ(0)", "label": "TOM0_IRQ(0)"},
+        {"name": "*.tom0.tom0_ch0.TOM_CH_IRQ.IRQ_EN", "label": "IRQ_EN", "format": "dec"},
+        {"name": "*.tom0.tom0_ch0.TOM_CH_IRQ.IRQ_NOTIFY", "label": "IRQ_NOTIFY", "format": "dec"}
+      ],
+      "markers": [
+        {"t_ns": 3030, "label": "5th interrupt"},
+        {"t_ns": 5530, "label": "10th interrupt"}
+      ]
+    },
+    {
+      "output": "duty_update.svg",
+      "title": "tom_pwm_irq - 5th interrupt: ISR acknowledges and writes SR1",
+      "vcd": "tom_pwm_irq.vcd",
+      "from_ns": 2900, "to_ns": 4100,
+      "signals": [
+        {"name": "TOM0_OUT(0)", "label": "TOM0_OUT(0)"},
+        {"name": "*.tom0.tom0_ch0.CN0:UP", "label": "ch0 CN0", "style": "analog"},
+        {"name": "TOM0_IRQ(0)", "label": "TOM0_IRQ(0)"},
+        {"name": "*.tom0.tom0_ch0.TOM_CH_IRQ.IRQ_NOTIFY", "label": "IRQ_NOTIFY", "format": "dec"},
+        {"name": "*.tom0.tom0_ch0.tom_sr1", "label": "ch0 SR1", "format": "dec"},
+        {"name": "*.tom0.tom0_ch0.tom_cm1", "label": "ch0 CM1", "format": "dec"}
+      ],
+      "markers": [
+        {"t_ns": 3030, "label": "CCU0 interrupt"},
+        {"t_ns": 3525, "label": "CM1 := SR1"}
+      ]
+    }
+  ]
+}

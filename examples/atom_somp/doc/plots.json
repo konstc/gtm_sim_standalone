@@ -1,0 +1,59 @@
+{
+  "plots": [
+    {
+      "output": "lab0_overview.svg",
+      "title": "atom_somp LAB0 - ATOM0 channels 0 and 1 in SOMP mode",
+      "vcd": "atom_somp_lab0.vcd",
+      "from_ns": 0, "to_ns": 6700,
+      "signals": [
+        {"name": "ATOM0_OUT(0)", "label": "ATOM0_OUT(0)"},
+        {"name": "*.atom0.atom0_ch0.CN0:SOMP_UP", "label": "ch0 CN0", "style": "analog"},
+        {"name": "*.atom0.atom0_ch0.CM0", "label": "ch0 CM0", "format": "dec"},
+        {"name": "*.atom0.atom0_ch0.CM1", "label": "ch0 CM1", "format": "dec"},
+        {"name": "ATOM0_OUT(1)", "label": "ATOM0_OUT(1)"},
+        {"name": "*.atom0.atom0_ch1.CN0:SOMP_UP", "label": "ch1 CN0", "style": "analog"},
+        {"name": "*.atom0.atom0_ch1.CM0", "label": "ch1 CM0", "format": "dec"},
+        {"name": "*.atom0.atom0_ch1.CM1", "label": "ch1 CM1", "format": "dec"}
+      ],
+      "markers": [
+        {"t_ns": 625, "label": "channels start"},
+        {"t_ns": 2625, "label": "SR0/SR1 := 25/12"}
+      ]
+    },
+    {
+      "output": "lab0_update.svg",
+      "title": "atom_somp LAB0 - shadow register update (channel 0)",
+      "vcd": "atom_somp_lab0.vcd",
+      "from_ns": 2500, "to_ns": 3000,
+      "signals": [
+        {"name": "ATOM0_OUT(0)", "label": "ATOM0_OUT(0)"},
+        {"name": "*.atom0.atom0_ch0.CN0:SOMP_UP", "label": "ch0 CN0", "style": "analog"},
+        {"name": "*.atom0.atom0_ch0.SR0", "label": "ch0 SR0", "format": "dec"},
+        {"name": "*.atom0.atom0_ch0.SR1", "label": "ch0 SR1", "format": "dec"},
+        {"name": "*.atom0.atom0_ch0.CM0", "label": "ch0 CM0", "format": "dec"},
+        {"name": "*.atom0.atom0_ch0.CM1", "label": "ch0 CM1", "format": "dec"}
+      ],
+      "markers": [
+        {"t_ns": 2645, "label": "CN0 reset: CM0 := SR0"},
+        {"t_ns": 2770, "label": "CM1 := SR1"}
+      ]
+    },
+    {
+      "output": "lab1_start.svg",
+      "title": "atom_somp LAB0 vs. LAB1 - start of channel 0",
+      "vcd": "atom_somp_lab1.vcd",
+      "from_ns": 400, "to_ns": 2000,
+      "signals": [
+        {"name": "ATOM0_OUT(0)", "label": "LAB0 OUT(0)", "vcd": "atom_somp_lab0.vcd"},
+        {"name": "*.atom0.atom0_ch0.CN0:SOMP_UP", "label": "LAB0 CN0", "style": "analog", "vcd": "atom_somp_lab0.vcd"},
+        {"name": "ATOM0_OUT(0)", "label": "LAB1 OUT(0)"},
+        {"name": "*.atom0.atom0_ch0.CN0:SOMP_UP", "label": "LAB1 CN0", "style": "analog"},
+        {"name": "*.atom0.atom0_ch0.CM0", "label": "LAB1 CM0", "format": "dec"},
+        {"name": "*.atom0.atom0_ch0.CM1", "label": "LAB1 CM1", "format": "dec"}
+      ],
+      "markers": [
+        {"t_ns": 1420, "label": "period end (CM0 = 150): CM0/CM1 := SR0/SR1"}
+      ]
+    }
+  ]
+}
