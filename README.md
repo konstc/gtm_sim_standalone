@@ -7,15 +7,15 @@ and COSEDA's SystemC-AMS proof-of-concept library. Linux and Windows
 (MinGW-w64) are supported.
 
 The bundle contains the model only as prebuilt static libraries, which
-depend on COSIDE's proprietary runtime library. This project provides:
+depend on COSIDE's runtime library. This project provides:
 
-* `cos_compat/` – an ABI-compatible re-implementation of the COSIDE runtime
-  parts the libraries use;
+* `cos_compat/` – an ABI-compatible adaptation of the COSIDE runtime parts
+  the libraries use;
 * `tb_lib/` – building blocks for test benches (GTM harness, stimulus sources,
   bit-level connections, tracing helpers);
 * `examples/` – example simulations with automatic waveform checks, each
   with its own README and waveform plots:
-  [atom_somp](examples/atom_somp/README.md) (ATOM PWM, recreation of the COSIDE
+  [atom_somp](examples/atom_somp/README.md) (ATOM PWM, adaptation of the bundle's
   example) and [tom_pwm_irq](examples/tom_pwm_irq/README.md) (TOM PWM with an
   interrupt service routine);
 * `tools/` – VCD comparison and plotting, COSIDE waveform-layout conversion and ABI checks.
