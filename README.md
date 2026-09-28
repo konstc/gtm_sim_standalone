@@ -9,8 +9,8 @@ and COSEDA's SystemC-AMS proof-of-concept library. Linux and Windows
 The bundle contains the model only as prebuilt static libraries, which
 depend on COSIDE's runtime library. This project provides:
 
-* `cos_compat/` – an ABI-compatible adaptation of the COSIDE runtime parts
-  the libraries use;
+* `cos_compat/` – independent compatibility implementation of the runtime interface
+  required by the prebuilt GTM model libraries;
 * `tb_lib/` – building blocks for test benches (GTM harness, stimulus sources,
   bit-level connections, tracing helpers);
 * `examples/` – example simulations with automatic waveform checks, each
