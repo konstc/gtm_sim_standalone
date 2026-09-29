@@ -1,7 +1,7 @@
 # Standalone simulation tool for the Bosch GTM SystemC model
 
 Runs the Bosch GTM (Generic Timer Module) virtual model that COSEDA
-distributes as a COSIDE bundle **without COSIDE**: the model is built into
+distributes as a COSIDE bundle **as a standalone tool**: the model is built into
 ordinary SystemC executables with CMake, using the Accellera SystemC kernel
 and COSEDA's SystemC-AMS proof-of-concept library. Linux and Windows
 (MinGW-w64) are supported.
@@ -112,7 +112,7 @@ cmake/GtmBundle.cmake               imported targets for the bundle libraries (v
 cmake/toolchains/mingw-w64.cmake    Windows toolchain (via MINGW_DIR)
 cos_compat/                         re-implementation of the COSIDE runtime parts used by the libraries
 tb_lib/                             test-bench building blocks (namespace gtm_tb)
-examples/atom_somp/                 ATOM SOMP example (recreation of the COSIDE example)
+examples/atom_somp/                 ATOM SOMP example
 examples/tom_pwm_irq/               TOM PWM with interrupt service routine
 tests/                              unit test of cos_compat, ABI checks, example runs and checks
 tools/                              VCD reader/diff/plotter, COSIDE .wave tools, ABI check tools
