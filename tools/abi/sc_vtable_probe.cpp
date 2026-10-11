@@ -36,5 +36,5 @@ template class tlm::tlm_base_target_socket<32, tlm::tlm_fw_transport_if<P>, tlm:
 template class tlm_utils::peq_with_get<tlm::tlm_generic_payload>;
 
 // Non-template classes whose vtables the libraries emit as well.
-sc_vector<sc_in<bool> >* probe_vector() { return new sc_vector<sc_in<bool> >("v", 2); }
+sc_vector<sc_in<bool> >* probe_vector() { return new sc_vector<sc_in<bool> >("v", 2U); }
 tlm::tlm_endian_context* probe_endian() { return new tlm::tlm_endian_context; }

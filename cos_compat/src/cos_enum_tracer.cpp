@@ -9,7 +9,7 @@ namespace sca_basic_libraries_namespace
 {
 
 #if defined(__x86_64__)
-static_assert(sizeof(cos_sc_enum_tracer_base) == 0x80, "cos_sc_enum_tracer_base layout");
+static_assert(sizeof(cos_sc_enum_tracer_base) == 0x80U, "cos_sc_enum_tracer_base layout");
 #endif
 
 namespace
@@ -62,7 +62,7 @@ void cos_sc_enum_tracer_base::update()
 
     sc_dt::sc_unsigned value(8 * m_max_length);
     value = 0;
-    for (std::size_t i = 0; i < length; ++i)
+    for (std::size_t i = 0U; i < length; ++i)
     {
         value <<= 8;
         value += static_cast<unsigned char>(str[i]);

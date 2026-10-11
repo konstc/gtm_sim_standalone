@@ -19,15 +19,15 @@ bool cmdline::parse(int argc, char* argv[])
             print_usage(argv[0]);
             return false;
         }
-        if (arg.compare(0, 2, "--") != 0)
+        if (arg.compare(0U, 2U, "--") != 0)
         {
             std::cerr << "unexpected argument '" << arg << "' (see --help)" << std::endl;
             return false;
         }
-        arg = arg.substr(2);
+        arg = arg.substr(2U);
         const std::size_t eq = arg.find('=');
-        const std::string name = arg.substr(0, eq);
-        const std::string value = eq == std::string::npos ? std::string() : arg.substr(eq + 1);
+        const std::string name = arg.substr(0U, eq);
+        const std::string value = eq == std::string::npos ? std::string() : arg.substr(eq + 1U);
 
         bool known = false;
         for (const option& opt : m_options)

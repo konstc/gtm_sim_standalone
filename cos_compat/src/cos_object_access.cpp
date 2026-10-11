@@ -12,14 +12,15 @@ namespace sca_basic_libraries_namespace
 
 // object_searcher_base holds two 'long' counters: 32-bit on Windows (LLP64),
 // 64-bit on Linux (LP64) - the prebuilt libraries follow the same rule.
-static_assert(sizeof(object_searcher<sc_core::sc_object>) == (sizeof(long) == 4 ? 0x18 : 0x20),
+static_assert(sizeof(object_searcher<sc_core::sc_object>) == (sizeof(long) == 4U ? 0x18U : 0x20U),
               "object_searcher layout");
-static_assert(sizeof(cos_trace_type_registrar_base) == 0x10, "cos_trace_type_registrar_base layout");
+static_assert(sizeof(cos_trace_type_registrar_base) == 0x10U, "cos_trace_type_registrar_base layout");
+
 // std::string + int + std::ifstream; libstdc++'s filebuf is smaller on MinGW.
 #if defined(__x86_64__) && defined(__GLIBCXX__) && defined(_WIN32)
-static_assert(sizeof(sca_obj_floc_trace) == 0x200, "sca_obj_floc_trace layout");
+static_assert(sizeof(sca_obj_floc_trace) == 0x200U, "sca_obj_floc_trace layout");
 #elif defined(__x86_64__) && defined(__GLIBCXX__)
-static_assert(sizeof(sca_obj_floc_trace) == 0x230, "sca_obj_floc_trace layout");
+static_assert(sizeof(sca_obj_floc_trace) == 0x230U, "sca_obj_floc_trace layout");
 #endif
 
 // ---------------------------------------------------------------------------
@@ -252,7 +253,7 @@ void sca_obj_floc_trace::sc_object_trace_(sc_core::sc_trace_file* tf, const std:
 
     for (sc_core::sc_object* obj : objs)
     {
-        const std::string trace_name = (objs.size() == 1 && !nm.empty()) ? nm : std::string(obj->name());
+        const std::string trace_name = (objs.size() == 1U && !nm.empty()) ? nm : std::string(obj->name());
 
         if (auto traceable = dynamic_cast<const cos_sc_traceable_object*>(obj))
         {

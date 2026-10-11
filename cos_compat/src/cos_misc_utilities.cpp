@@ -6,14 +6,14 @@
 namespace sca_basic_libraries_namespace
 {
 
-#define COS_COMPAT_TIME_LITERAL(SUFFIX, UNIT)                                                  \
-    sc_core::sc_time operator"" SUFFIX(unsigned long long v)                                  \
-    {                                                                                          \
-        return sc_core::sc_time(static_cast<double>(v), UNIT);                                 \
-    }                                                                                          \
-    sc_core::sc_time operator"" SUFFIX(long double v)                                         \
-    {                                                                                          \
-        return sc_core::sc_time(static_cast<double>(v), UNIT);                                 \
+#define COS_COMPAT_TIME_LITERAL(SUFFIX, UNIT)                          \
+    sc_core::sc_time operator"" SUFFIX(unsigned long long v)           \
+    {                                                                  \
+        return sc_core::sc_time(static_cast<double>(v), UNIT);         \
+    }                                                                  \
+    sc_core::sc_time operator"" SUFFIX(long double v)                  \
+    {                                                                  \
+        return sc_core::sc_time(static_cast<double>(v), UNIT);         \
     }
 
 COS_COMPAT_TIME_LITERAL(_SC_FS, sc_core::SC_FS)

@@ -29,7 +29,7 @@ namespace sc_core
 struct elaboration_data
     : public sca_basic_libraries_namespace::cos_connectivity_elaborator::elaboration_data_base
 {
-    explicit elaboration_data(std::size_t n = 0) : size(n) {}
+    explicit elaboration_data(std::size_t n = 0U) : size(n) {}
     std::size_t size;
 };
 
@@ -55,7 +55,7 @@ public:
     template <typename Creator>
     void init(size_type n, Creator c)
     {
-        if (this->size() != 0)
+        if (this->size() != 0U)
         {
             if (n != this->size())
             {
@@ -83,12 +83,12 @@ public:
             { this->elaborate_binding(other, static_cast<elaboration_data&>(d).size); });
         m_elaborator.bind(*this, other);
 
-        if (this->size() != 0)
+        if (this->size() != 0U)
         {
             elaboration_data data(this->size());
             m_elaborator.elaborate(data);
         }
-        else if (other.size() != 0)
+        else if (other.size() != 0U)
         {
             elaboration_data data(other.size());
             m_elaborator.elaborate(data);
@@ -126,12 +126,12 @@ private:
     template <typename Other>
     void elaborate_binding(Other& other, std::size_t n)
     {
-        if (other.size() == 0)
+        if (other.size() == 0U)
             other.init(n);
         else if (other.size() != n)
             report_size_mismatch(other.name(), other.size(), n);
 
-        if (this->size() == 0)
+        if (this->size() == 0U)
         {
             create_elements(n, &base_type::create_element);
             elaboration_data data(this->size());

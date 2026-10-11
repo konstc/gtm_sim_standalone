@@ -10,7 +10,7 @@
 namespace sca_basic_libraries_namespace
 {
 
-static_assert(sizeof(cos_connectivity_elaborator) == 16,
+static_assert(sizeof(cos_connectivity_elaborator) == 16U,
               "cos_connectivity_elaborator must keep the COSIDE object size");
 
 namespace

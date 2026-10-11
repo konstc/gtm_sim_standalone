@@ -89,15 +89,15 @@ int sc_main(int, char*[])
     top t("t");
 
     // --- lazily sized vector binding ----------------------------------------------
-    EXPECT(t.sigs_a.size() == 3);
-    EXPECT(t.sigs_b.size() == 3);
-    EXPECT(t.m_a.in.size() == 3);
-    EXPECT(t.m_b.in.size() == 3);
+    EXPECT(t.sigs_a.size() == 3U);
+    EXPECT(t.sigs_b.size() == 3U);
+    EXPECT(t.m_a.in.size() == 3U);
+    EXPECT(t.m_b.in.size() == 3U);
     EXPECT(std::string(t.m_b.in[2].name()) == "t.m_b.in_2");
 
     // --- object search ----------------------------------------------------------------
-    EXPECT(get_matching_objects<sc_signal<bool> >("t.sigs_*").size() == 6);
-    EXPECT(get_matching_objects<sc_in<bool> >("*.l.in_*").size() == 6);
+    EXPECT(get_matching_objects<sc_signal<bool> >("t.sigs_*").size() == 6U);
+    EXPECT(get_matching_objects<sc_in<bool> >("*.l.in_*").size() == 6U);
     auto* s = GET_OBJECT<sc_signal<bool> >("*sigs_b_1");
     EXPECT(s == &t.sigs_b[1]);
     EXPECT((GET_OBJECT<sc_module>("*does_not_exist*", false)) == nullptr);

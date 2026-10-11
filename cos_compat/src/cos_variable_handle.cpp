@@ -19,7 +19,7 @@ std::string cos_sc_variable_handle_base::to_string() const { return std::string(
 
 bool cos_sc_variable_handle_base::from_string(const std::string&) { return true; }
 
-std::size_t cos_sc_variable_handle_base::get_size() const { return 0; }
+std::size_t cos_sc_variable_handle_base::get_size() const { return 0U; }
 
 void* cos_sc_variable_handle_base::get_memory_ref() const { return nullptr; }
 

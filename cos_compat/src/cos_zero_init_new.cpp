@@ -22,10 +22,10 @@ namespace
 {
 void* zero_initialized_alloc(std::size_t size)
 {
-    if (size == 0) size = 1;
+    if (size == 0U) size = 1U;
     for (;;)
     {
-        if (void* p = std::calloc(1, size)) return p;
+        if (void* p = std::calloc(1U, size)) return p;
         std::new_handler handler = std::get_new_handler();
         if (!handler) throw std::bad_alloc();
         handler();

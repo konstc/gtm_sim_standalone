@@ -10,11 +10,11 @@ atom_somp_tb::atom_somp_tb(sc_module_name nm, const params& p) : gtm_tb::gtm_har
 {
     // Pattern for TIM0 inputs 5..2.
     const std::vector<gtm_tb::pwc_source<sc_bv<4> >::point> pattern = {
-        {sc_time(1, SC_US), 0x00},  {sc_time(5, SC_US), 0x55},  {sc_time(6, SC_US), 0x2A},
-        {sc_time(7, SC_US), 0x55},  {sc_time(8, SC_US), 0x2A},  {sc_time(9, SC_US), 0x55},
-        {sc_time(10, SC_US), 0x2A}, {sc_time(11, SC_US), 0x55}, {sc_time(12, SC_US), 0x2A},
-        {sc_time(13, SC_US), 0x55}};
-    i_pwc_src_sc2.reset(new gtm_tb::pwc_source<sc_bv<4> >("i_pwc_src_sc2", 42, pattern));
+        {sc_time(1, SC_US), 0x00U},  {sc_time(5, SC_US), 0x55U},  {sc_time(6, SC_US), 0x2AU},
+        {sc_time(7, SC_US), 0x55U},  {sc_time(8, SC_US), 0x2AU},  {sc_time(9, SC_US), 0x55U},
+        {sc_time(10, SC_US), 0x2AU}, {sc_time(11, SC_US), 0x55U}, {sc_time(12, SC_US), 0x2AU},
+        {sc_time(13, SC_US), 0x55U}};
+    i_pwc_src_sc2.reset(new gtm_tb::pwc_source<sc_bv<4> >("i_pwc_src_sc2", 42U, pattern));
     i_pwc_src_sc2->out(tim0_in_5_2);
 
     // ATOM0 outputs 7/6 looped back to TIM0 inputs 7/1.

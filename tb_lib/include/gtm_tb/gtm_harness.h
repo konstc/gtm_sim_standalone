@@ -32,7 +32,7 @@ public:
         std::function<void()> test_program = [] {};  ///< GTM application (controller thread)
         std::function<void()> isr_func = [] {};      ///< interrupt service routine
         std::function<void()> isr_priority_func;     ///< optional
-        std::uint64_t clock_period_ps = 5000;        ///< 200 MHz
+        std::uint64_t clock_period_ps = 5000U;       ///< 200 MHz
         sc_core::sc_time reset_release = sc_core::sc_time(12, sc_core::SC_NS);
         vendor_dev_cfg_type vendor_dev_cfg = umbrella_dev_cfg();
         cos_gtm_port_irq_table_type port_irq_table = linear_port_irq_table();

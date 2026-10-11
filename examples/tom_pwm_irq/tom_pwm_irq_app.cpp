@@ -17,43 +17,43 @@ namespace tom_pwm_irq
 
 namespace
 {
-const uint32_t CCU0TC = 0x1;  // IRQ_NOTIFY/IRQ_EN bit: CN0 reached CM0 (period end)
+const uint32_t CCU0TC = 0x1U;  // IRQ_NOTIFY/IRQ_EN bit: CN0 reached CM0 (period end)
 int isr_calls = 0;
 int serviced = 0;
 } // namespace
 
 void program()
 {
-    gal_wait_ps(100000);
+    gal_wait_ps(100000U);
     gal_msg_set_mode(MSG_MODE_USE_INFO | MSG_MODE_USE_WARNING | MSG_MODE_USE_TIME_STAMP);
     GAL_INFO("TOM PWM + interrupt example");
 
     // software reset, cluster 0 clock divider 1
-    GTM.CLS[0].ARCH.CTRL = 0x0;
-    GTM.CLS[0].ARCH.RST = 0x1;
-    GTM.CLS[0].ARCH.CTRL = 0x1;
-    GTM.CLS[0].ARCH.CTRL = 0x0;
-    GTM.CLS[0].ARCH.CLK_CFG = 0x1;
+    GTM.CLS[0].ARCH.CTRL = 0x0U;
+    GTM.CLS[0].ARCH.RST = 0x1U;
+    GTM.CLS[0].ARCH.CTRL = 0x1U;
+    GTM.CLS[0].ARCH.CTRL = 0x0U;
+    GTM.CLS[0].ARCH.CLK_CFG = 0x1U;
 
     // CMU: fixed clocks from the global clock, enable FXCLK
-    GTM.CLS[0].CMU.FXCLK_CTRL = 0x0;
-    GTM.CLS[0].CMU.CLK_EN = 0x00800000;  // EN_FXCLK = 0b10
+    GTM.CLS[0].CMU.FXCLK_CTRL = 0x0U;
+    GTM.CLS[0].CMU.CLK_EN = 0x00800000U;  // EN_FXCLK = 0b10
 
     // TOM0 channel 0: FXCLK0, SL = 1
-    GTM.CLS[0].TOM.TGC[0].GLB_CTRL = 0x00020000;  // UPEN_CTRL0: SR -> CM update
-    GTM.CLS[0].TOM.CH[0].CTRL_SR = 0x00000000;    // CLK_SRC_SR = FXCLK0
-    GTM.CLS[0].TOM.CH[0].CTRL = 0x00000800;       // CLK_SRC = FXCLK0, SL = 1
-    GTM.CLS[0].TOM.CH[0].SR0 = 100;               // period
-    GTM.CLS[0].TOM.CH[0].SR1 = 25;                // duty cycle
+    GTM.CLS[0].TOM.TGC[0].GLB_CTRL = 0x00020000U;  // UPEN_CTRL0: SR -> CM update
+    GTM.CLS[0].TOM.CH[0].CTRL_SR = 0x00000000U;    // CLK_SRC_SR = FXCLK0
+    GTM.CLS[0].TOM.CH[0].CTRL = 0x00000800U;       // CLK_SRC = FXCLK0, SL = 1
+    GTM.CLS[0].TOM.CH[0].SR0 = 100U;               // period
+    GTM.CLS[0].TOM.CH[0].SR1 = 25U;                // duty cycle
     GTM.CLS[0].TOM.CH[0].IRQ_NOTIFY = CCU0TC;     // clear stale notification
     GTM.CLS[0].TOM.CH[0].IRQ_EN = CCU0TC;
 
     GAL_INFO("start TOM0 channel 0");
-    GTM.CLS[0].TOM.TGC[0].ENDIS_CTRL = 0x2;
-    GTM.CLS[0].TOM.TGC[0].OUTEN_CTRL = 0x2;
-    GTM.CLS[0].TOM.TGC[0].GLB_CTRL = 0x00000001;  // host trigger
+    GTM.CLS[0].TOM.TGC[0].ENDIS_CTRL = 0x2U;
+    GTM.CLS[0].TOM.TGC[0].OUTEN_CTRL = 0x2U;
+    GTM.CLS[0].TOM.TGC[0].GLB_CTRL = 0x00000001U;  // host trigger
 
-    gal_wait(8);  // us
+    gal_wait(8U);  // us
 
     GAL_INFO("ISR called %d times, %d CCU0 interrupts serviced", isr_calls, serviced);
 }
@@ -70,12 +70,12 @@ void isr()
     if (serviced == 5)
     {
         GAL_INFO("interrupt %d: duty cycle 25 -> 50 ticks", serviced);
-        GTM.CLS[0].TOM.CH[0].SR1 = 50;
+        GTM.CLS[0].TOM.CH[0].SR1 = 50U;
     }
     else if (serviced == 10)
     {
         GAL_INFO("interrupt %d: disabling the interrupt", serviced);
-        GTM.CLS[0].TOM.CH[0].IRQ_EN = 0;
+        GTM.CLS[0].TOM.CH[0].IRQ_EN = 0U;
     }
 }
 

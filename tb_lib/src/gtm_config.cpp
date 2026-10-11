@@ -11,24 +11,24 @@ namespace gtm_tb
 vendor_dev_cfg_type umbrella_dev_cfg()
 {
     vendor_dev_cfg_type cfg = {};
-    cfg.irq_mode_rst_val = 0;
-    cfg.atom_trig_chain = 1;
-    cfg.atom_trig_intchain = 4;
-    cfg.tom_trig_chain = 1;
-    cfg.tom_trig_intchain = 8;
-    cfg.atom_out_rst = 1;
-    cfg.tom_out_rst = 1;
-    cfg.tio_out_rst = 1;
+    cfg.irq_mode_rst_val = 0U;
+    cfg.atom_trig_chain = 1U;
+    cfg.atom_trig_intchain = 4U;
+    cfg.tom_trig_chain = 1U;
+    cfg.tom_trig_intchain = 8U;
+    cfg.atom_out_rst = 1U;
+    cfg.tom_out_rst = 1U;
+    cfg.tio_out_rst = 1U;
     return cfg;
 }
 
 vendor_dev_cfg_type ifx_dev_cfg()
 {
     vendor_dev_cfg_type cfg = umbrella_dev_cfg();
-    cfg.irq_mode_rst_val = 2;
-    cfg.atom_out_rst = 0;
-    cfg.tom_out_rst = 0;
-    cfg.tio_out_rst = 0;
+    cfg.irq_mode_rst_val = 2U;
+    cfg.atom_out_rst = 0U;
+    cfg.tom_out_rst = 0U;
+    cfg.tio_out_rst = 0U;
     return cfg;
 }
 
